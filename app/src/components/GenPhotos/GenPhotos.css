@@ -1,0 +1,12 @@
+img{
+    max-width: 35rem;
+    position: absolute;
+    overflow:hidden;
+}
+.stats{
+    position: absolute;
+    width: 100%;
+    background: white;
+    height:15rem;
+    bottom:0rem;
+}

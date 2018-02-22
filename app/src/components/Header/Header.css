@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Cutive+Mono');
 
 .Header{
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 .main{
     display: flex;
@@ -10,12 +10,9 @@
     justify-content: space-between;
     align-items: center;
     width:100%;
-    height: 120px;
+    height: 140px;
     padding: 20px;
-    background-image: linear-gradient(
-        to right bottom,
-        rgba(169, 228, 86, 0.767),
-        rgba(33, 139, 147, 0.801));
+    background-color: black;
 }
 .logout{
     font-size: 30px;
@@ -27,11 +24,19 @@
     color: white;
     border-radius: 10px;
 }
+.logout:hover{
+    background-color:white;
+    color:black;
+}
 .title{
     font-family: 'Monoton';
     color: white;
-    font-size: 50px;
+    font-size: 60px;
     margin-left: 20px;
+    letter-spacing: 5px;
+}
+.title:link{
+    text-decoration: none;
 }
 .title:visited{
     text-decoration: none;

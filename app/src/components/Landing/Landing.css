@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Monoton');
+ @import url('https://fonts.googleapis.com/css?family=Monoton');
 @import url('https://fonts.googleapis.com/css?family=Cutive+Mono');
 *{
     margin:0;
@@ -14,27 +14,41 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(
-        to right bottom,
-        rgba(169, 228, 86, 0.767),
-        rgba(33, 139, 147, 0.801)),
-        url(road.jpg);
+    background-color: rgba(0, 0, 0, 0.438);
     background-size: cover;
-    height: 92vh;
-    margin: 30px;
+    height: 92.5vh;
+    margin-top: 30px;
+    margin-bottom:30px;
 
 }
+.background-wrap{
+    display:flex;
+    justify-content: center;
+    position:fixed;
+    height: 100%;
+    z-index: -1000;
+    border: 30px solid white;
+}
+
 
 .Title{
     font-family: 'Monoton';
     color: white;
     font-size: 150px;
+    z-index: 2;
+    letter-spacing: 10px;
+    animation: moveInLeft;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
 }
 .sub{
     font-family: 'Cutive Mono';
     color: white;
     font-size: 40px;
     margin-left: 40px;
+    animation: moveInRight;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
 }
 .login{
     margin-left: 57px;
@@ -46,5 +60,47 @@
     border: 2px solid white;
     border-radius: 10px;
     font-size: 40px;
+    animation: moveInBottom;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}  
+.login:hover{
+    background: white;
+    color:rgb(0, 0, 0);
 }
-
+@keyframes moveInLeft{
+    0%{
+        opacity: 0;
+        transform:translateX(-10rem)
+    }
+    80%{
+        transform: translateX(1rem)
+    }
+    100%{
+        opacity:1;
+        transform:translate(0);
+    }
+}
+@keyframes moveInRight{
+    0%{
+        opacity: 0;
+        transform:translateX(10rem)
+    }
+    80%{
+        transform: translateX(-1rem)
+    }
+    100%{
+        opacity:1;
+        transform:translate(0);
+    }
+}
+@keyframes moveInBottom{
+    0%{
+        opacity: 0;
+        transform:translateY(3rem)
+    }
+    100%{
+        opacity:1;
+        transform:translate(0);
+    }
+}
