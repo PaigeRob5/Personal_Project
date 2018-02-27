@@ -1,0 +1,47 @@
+.ButtonContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.DirectionsButton{
+    width: 200px;
+    margin-bottom: 15px;
+}
+.MapContainer{
+    display:flex;
+    width:50%;
+    justify-content: flex-start;
+    margin-left: 10%;
+}
+.distAndTime{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15%;
+    margin-top: 5%;
+    font-size: 25px;
+}
+.Distance{
+    margin-bottom: 3%;
+    font-weight: bold;
+}
+.MapBody{
+    display: flex;
+    flex-direction: row;
+}
+.Time{
+    font-weight: bold;
+}
+.Info{
+    font-weight: lighter;
+}
+.LowerBox{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.CreateTrip{
+  margin-top: 150px;
+  
+    
+}

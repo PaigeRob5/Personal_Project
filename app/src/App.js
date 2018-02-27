@@ -4,7 +4,7 @@ import { HashRouter, Route, Switch} from 'react-router-dom';
 import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
 import ViewTrip from './components/ViewTrip/ViewTrip';
-import NewTrip from './components/NewTrip/NewTrip';
+
 
 class App extends Component {
   render() {
@@ -16,7 +16,6 @@ class App extends Component {
           <Switch>
             <Route exact path = '/' component = {Landing}/>
             <Route path = '/dashboard' component = {Dashboard}/>
-            <Route path = '/newtrip' component = {NewTrip}/>
             <Route path = '/viewtrip/:id' component = {ViewTrip}/>            
 
 

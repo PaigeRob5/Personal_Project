@@ -36,6 +36,7 @@ html{
     color: rgb(0, 0, 0);
     font-size: 3rem;
     font-weight: 700;
+    cursor: pointer;
 
 }
 .card-1{
@@ -81,4 +82,88 @@ html{
 .card-1:hover .card-side--back{
     transform: rotateY(0);
     overflow: hidden;
+}
+
+.Modal{
+    position: absolute;
+    top: 30px;
+    left: 320px;
+    right: 320px;
+    bottom: 30px;
+    background-color: rgb(255, 255, 255);
+    outline: none;
+    font-family: "Cutive Mono";
+    /* border-radius: 20px; */
+}
+.Overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.507);
+}
+.topModal{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-transform: uppercase;
+}
+.ModalClose{
+    margin-top: 10px;
+    background-color: #218B93;
+    color: white;
+    font-size: 25px;
+    width:50px;
+    font-weight: 900;
+}
+.ModalClose:hover{
+    background-color: white;
+    color: #218B93;
+    border: solid #218B93 1px;
+}
+.modalTitle{
+    margin-top: 10px;
+    font-size: 40px;
+    font-weight: bold;
+    margin-right: 25%;
+}
+
+.ModalBody{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.modalText{
+    display:flex;
+    font-size: 20px;
+    flex-direction: column;
+    align-content: space-between;
+}
+.statsTitle{
+    /* font-weight: 900; */
+    /* border-bottom: solid 1px black; */
+    text-transform: uppercase;
+    margin-bottom: 7px;
+    font-size: 30px;
+    color:rgb(26, 113, 119);
+}
+.TripDates{
+    margin-top: 20px;
+}
+.TripDates,
+.TripLocations,
+.TripTitle{
+    margin-bottom: 20px;
+    
+}
+input{
+    margin-right: 10px;
+    height:30px;
+    font-size: 20px;
+    font-family: 'Cutive Mono';
+}
+label{
+    margin-left: 10px;
 }

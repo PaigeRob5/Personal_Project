@@ -5,8 +5,8 @@ import "/Users/dallinfawcett/devmtn/projects/personal-project/app/src/components
 
 
 const unsplash = new Unsplash({
-  applicationId: "360860dc6de41390ed1db193ac1b95848fc1f756d1b7b3768e72037b9a95a271",
-  secret: "8ff5b767edfd8180649db73f1aaf41f3bddec150411245dbc8da9c5afaf66ad0",
+  applicationId: "342b08ad25bf34ae903d8d4d077a9f87472a4d9f507082314a820cf94c2e84bc",
+  secret: "a41565b5a97dd73f9467bad280f2ec6836612f5b528bde721a052c409206f55c",
   callbackUrl: "urn:ietf:wg:oauth:2.0:oob"
 });
 

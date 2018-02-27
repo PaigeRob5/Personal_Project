@@ -8,7 +8,7 @@ class Landing extends Component {
       <div className="Landing">
         <div className = "Main">
           <div className = "background-wrap">
-            <video id = 'video-bg-element'preload='auto'autoplay = 'true'loop="loop"muted = 'muted'>
+            <video id = 'video-bg-element'preload='auto'autoPlay = 'true'loop="loop"muted = 'muted'>
               /* <source src = {video}type = 'video/mp4'/> */
 
             </video>
