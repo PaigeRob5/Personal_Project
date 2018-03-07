@@ -4,8 +4,9 @@
     justify-content: center;
 }
 .DirectionsButton{
-    width: 200px;
-    margin-bottom: 15px;
+    width: 20rem;
+    height: 3rem;
+    margin-bottom: 1.5rem;
 }
 .MapContainer{
     display:flex;
@@ -18,12 +19,14 @@
     display: flex;
     flex-direction: column;
     margin-left: 15%;
-    margin-top: 5%;
-    font-size: 25px;
+    margin-top: 1%;
+    font-size: 2.8rem;
+    line-height: 30px;
 }
 .Distance{
     margin-bottom: 3%;
     font-weight: bold;
+    height: 9rem;
 }
 .MapBody{
     display: flex;
@@ -41,7 +44,32 @@
     justify-content: center;
 }
 .CreateTrip{
-  margin-top: 150px;
-  
+  margin-top: 17rem;
+  height: 3rem;
+  position: absolute;
     
+}
+
+@media(max-width: 1159px){
+    .distAndTime{
+        font-size: 1.75rem; 
+    }
+}
+@media(max-width: 1097px){
+    .distAndTime{
+        font-size: 2rem;
+    }
+    .DirectionsButton{
+        width: 19rem;
+        height: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    .CreateTrip{
+        height: 2rem;
+    }
+}
+@media(max-width:1049px){
+    /* .distAndTime{
+        font-size: 1.5rem;
+    } */
 }

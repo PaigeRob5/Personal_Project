@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Oswald:300');
 img{
     max-width: 35rem;
     position: absolute;
@@ -9,4 +11,49 @@ img{
     background: white;
     height:15rem;
     bottom:0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.viewTrip{
+    height:2.3rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+    width: 16rem;
+    
+}
+.viewTrip:hover{
+    animation: bounce 1s;
+}
+@keyframes bounce {
+	0%, 20%, 60%, 100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	40% {
+		-webkit-transform: translateY(-13px);
+		transform: translateY(-13px);
+	}
+
+	80% {
+		-webkit-transform: translateY(-5px);
+		transform: translateY(-5px);
+	}
+}
+.credit{
+    font-size: 1.1rem;
+    align-self: flex-start;
+    background: rgba(255, 255, 255, 0);
+    position: relative;
+    color: rgb(155, 142, 142);
+}
+.locations{
+    font-family: 'Montserrat';
+    margin-bottom: 10px;
 }

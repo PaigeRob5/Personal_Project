@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import Unsplash, {toJson} from 'unsplash-js';
-import "/Users/dallinfawcett/devmtn/projects/personal-project/app/src/components/GenPhotos/GenPhotos.css"
-
-
+import "./GenPhotos.css"
+import {Link} from 'react-router-dom';
+import ViewTrip from '../ViewTrip/ViewTrip.js';
 
 const unsplash = new Unsplash({
-  applicationId: "342b08ad25bf34ae903d8d4d077a9f87472a4d9f507082314a820cf94c2e84bc",
-  secret: "a41565b5a97dd73f9467bad280f2ec6836612f5b528bde721a052c409206f55c",
+  applicationId: "4e05349e4d73309d50ea110bb0bb4155255501ac0f88631a950970a05f66da91",
+  secret: "1001c0eb90a82831ad748213f38eb31212a97d6d7073b5b1ecbf6ad20dac7a46",
   callbackUrl: "urn:ietf:wg:oauth:2.0:oob"
 });
 
@@ -26,22 +26,25 @@ export default class Photos extends Component{
       }
       getPhotos(){
         
-          unsplash.search.photos(`${this.props.name}`,1,1)
+          unsplash.search.photos(`${this.props.end_loc}`,1,1)
           .then(toJson)
           .then(json => {
             this.setState({photo: json.results})
-            console.log(json.results)
           })
-        
         
       }
 
       render(){
-        let mappedPhotos = this.state.photo.map(photo =>{
+        let mappedPhotos = this.state.photo.map((photo,i) =>{
             return(
-        <div>
-            <img src = {photo.urls.small}/>
-            <div className = "stats">Statistics</div>
+        <div key = {i}>
+            <img src = {photo.urls.small}></img>
+            {/* <div className = "credit">photo by Unsplash</div> */}
+            <div className = "stats">
+            <div className = "locations">{this.props.start_loc} - {this.props.end_loc}</div>
+            <div className = "dates">{this.props.start_date} to {this.props.end_date}</div>
+            <Link to ={`/viewtrip/${this.props.trip_id}`}><button className = "viewTrip">View Trip</button></Link>
+            </div>
         </div>
             )
         })

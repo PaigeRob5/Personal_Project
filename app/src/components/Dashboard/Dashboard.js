@@ -29,6 +29,7 @@ class Dashboard extends Component {
     this.handleStartLocChange = this.handleStartLocChange.bind(this);
     this.handleEndLocChange = this.handleEndLocChange.bind(this);
     this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.tripCreated = this.tripCreated.bind(this);
   }
   componentDidMount(){
     axios.get('/api/trips').then(response =>{
@@ -43,6 +44,14 @@ class Dashboard extends Component {
 
   handleCloseModal(){
     this.setState({showModal:!this.state.showModal})
+  }
+  tripCreated(){
+    this.setState({showModal:!this.state.showModal})
+    axios.get('/api/trips').then(response =>{
+      console.log(response.data)
+      this.setState({trips:response.data})
+      
+    })
   }
 
   handleStartDateChange(e){
@@ -77,7 +86,8 @@ class Dashboard extends Component {
           <div className = 'create-card'>
             <div onClick ={this.handleOpenModal}>+ New Trip</div>
 
-              <ReactModal 
+              <ReactModal
+              closeTimeoutMS={400}
               isOpen={this.state.showModal}
               contentLabel="onRequestClose Example"
               onRequestClose={this.handleCloseModal}
@@ -94,34 +104,34 @@ class Dashboard extends Component {
                   
                     <div className = "TripDates">
                       <div className = "statsTitle">Dates of Travel</div>
-                      <label>Start:</label><input type = "date" onChange = {this.handleStartDateChange}/>
-                      <label>End:</label><input type = "date" onChange = {this.handleEndDateChange}/>
+                      <label>Start:</label><input className ="newTripInput" type = "date" onChange = {this.handleStartDateChange}/>
+                      <label>End:</label><input className ="newTripInput" type = "date" onChange = {this.handleEndDateChange}/>
                     </div>
 
                     <div className = "TripLocations">
                       <div className = "statsTitle">Locations</div>
-                      <label>Origin:</label><input type = "text" defaultValue = "city, state" onChange = {this.handleStartLocChange}/>
-                      <label>Destination:</label><input type = "text" defaultValue = "city, state" onChange = {this.handleEndLocChange}/>
+                      <label>Origin:</label><input className ="newTripInput" type = "text" defaultValue = "city, state" onChange = {this.handleStartLocChange}/>
+                      <label>Destination:</label><input className ="newTripInput" type = "text" defaultValue = "city, state" onChange = {this.handleEndLocChange}/>
                     </div>
 
                     <div className = "TripTitle">
                       <div className = "statsTitle">Trip Title</div>
-                      <label>What will you call this trip?</label><input type = "text" defaultValue = "ex: Spring Break 2018" onChange={this.handleTitleChange}/>
+                      <label>What will you call this trip?</label><input className ="newTripInput" type = "text" defaultValue = "ex: Spring Break" onChange={this.handleTitleChange}/>
                     </div>
                   </div>
               </div>
             <div className = "mapContainer">
-              <Map start_date = {this.state.start_date} end_date = {this.state.end_date} starting_loc = {this.state.start_loc} end_loc = {this.state.end_loc} trip_name ={this.state.trip_name}/>
+              <Map tripCreated = {this.tripCreated} start_date = {this.state.start_date} end_date = {this.state.end_date} starting_loc = {this.state.start_loc} end_loc = {this.state.end_loc} trip_name ={this.state.trip_name}/>
             </div>
               </ReactModal>
           </div>
 
           {this.state.trips.map((trip,i)=>{
             return(
-              <div id = {i}className = 'card-1'>
+              <div key = {i}className = 'card-1'>
                 <div className = "card-side card-side--front">{trip.trip_name}</div>
                 <div className = "card-side card-side--back">
-                  <GenPhotos name ={trip.trip_name} start_loc = {trip.starting_loc} end_loc ={trip.destination} start_date = {trip.start_date} end_date={trip.end_date}/>
+                  <GenPhotos trip_id = {trip.trip_id}name ={trip.trip_name} start_loc = {trip.starting_loc} end_loc ={trip.destination} start_date = {trip.start_date} end_date={trip.end_date}/>
                 </div>
               </div>  
             )

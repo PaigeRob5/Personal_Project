@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Landing.css';
 import video from './RoadiLandingVideo.mp4'
+import {Helmet} from 'react-helmet';
 
 class Landing extends Component {
   render() {

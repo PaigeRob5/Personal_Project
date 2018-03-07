@@ -3,7 +3,12 @@ import Dropzone from 'react-dropzone';
 import sha1 from 'sha1';
 import superagent from 'superagent';
 import axios from 'axios';
+import './Photos.css';
 
+
+const style ={
+    width: '210px'
+}
 export default class Photos extends Component{
     constructor(){
         super();
@@ -16,12 +21,11 @@ export default class Photos extends Component{
     componentDidMount(){
         axios.get(`/api/photos/${this.props.tripId}`).then(response =>{
             this.setState({tripImages:response.data})
-            console.log(this.state.tripImages)
+            
         })
     }
 
     uploadFile(files){
-        console.log('uploadFile: ');
         const img = files[0];
         const cloudName = 'roadi';
         const url = 'https://api.cloudinary.com/v1_1/'+cloudName+'/image/upload'
@@ -47,35 +51,38 @@ export default class Photos extends Component{
                 alert(err)
                 return
             }
-            console.log('Upload Complete: ' + JSON.stringify(resp.body))
             const uploaded = resp.body;
+            console.log("Resp Boyd",resp.body)
             
             let updatedImages = Object.assign([], this.state.tripImages);
+            let localImages = Object.assign([], this.state.tripImages);
+            localImages.push({img_url: uploaded.url});
             updatedImages.push(uploaded);
 
-            console.log(updatedImages);
 
-            axios.post(`/api/photos/${this.props.tripId}`,{img_url: updatedImages[0].url})
-            this.setState({tripImages: updatedImages})
+            axios.post(`/api/photos/${this.props.tripId}`,{img_url: updatedImages[updatedImages.length-1].url})
+            this.setState({tripImages: localImages},()=>console.log('This is state',this.state))
         })
+
     }
 
     render(){
         const tripPhotos = this.state.tripImages.map((image,i)=>{
             return(
-            <li key = {i}>
-                <img src ={image.img_url} alt = 'trip photo'/>
-            </li>
+            <div className = "displayPhotos"key = {i}>
+                <img className = "tripPhotos"src ={image.img_url} style={style} alt = 'trip photo'/>
+             </div>
             )
         })
         return(
-            <div>
-                Photos
-                <Dropzone onDrop ={this.uploadFile.bind(this)}/>
-                <ol>
-                    {/* {list} */}
-                    {tripPhotos}
-                </ol>
+            <div className = "Photos">
+                <div className = "photoTitle">Photos</div>
+                <div className = "content">
+                <Dropzone className ="Dropzone"onDrop ={this.uploadFile.bind(this)}>drag photos here or click to upload</Dropzone>
+                 <div className = "listedPhotos">
+                        {tripPhotos}
+                    </div>
+                </div>
 
             </div>
 

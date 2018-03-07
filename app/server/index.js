@@ -8,6 +8,7 @@ const express = require('express')
     , photosCtrl = require('./photos_controller')
 
     const app = express();
+    app.use( express.static( `${__dirname}/../build` ) );
     const {
         SERVER_PORT,
         SESSION_SECRET,
@@ -23,7 +24,6 @@ const express = require('express')
         resave:false,
         saveUninitialized: true
     }))
-
     massive(CONNECTION_STRING).then( db => {
         app.set('db', db)
     })
@@ -64,7 +64,7 @@ const express = require('express')
 
     app.get('/auth', passport.authenticate('auth0'));
     app.get('/auth/callback', passport.authenticate('auth0', {
-        successRedirect: 'http://localhost:3000/#/dashboard'
+        successRedirect: process.env.SUCCESS_REDIRECT
     }))
 
     app.get('/auth/me', (req,res)=>{
@@ -78,7 +78,7 @@ const express = require('express')
 
     app.get('/logout', (req,res)=>{
         req.logOut();
-        res.redirect('http://localhost:3000')
+        res.redirect(process.env.REDIRECT)
     })
 
     //Endpoints Trips
@@ -87,11 +87,12 @@ const express = require('express')
     app.delete('/api/trips/:id', tripsCtrl.delete);
     app.post('/api/trips', tripsCtrl.create);
     app.put('/api/trips/:id',tripsCtrl.update);
-    app.get('/api/trips/:id', tripsCtrl.readTrip)
+    app.get('/api/trips/:id', tripsCtrl.readTrip);
 
     //Endpoints Photos
     app.get('/api/photos/:id', photosCtrl.read);
     app.post('/api/photos/:id', photosCtrl.create);
+    app.delete('/api/photos/:id', photosCtrl.delete);
 
     app.listen(SERVER_PORT, () => {
         console.log(`Server listening on port: ${SERVER_PORT}`)

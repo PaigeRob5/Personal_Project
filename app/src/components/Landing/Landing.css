@@ -1,5 +1,6 @@
  @import url('https://fonts.googleapis.com/css?family=Monoton');
 @import url('https://fonts.googleapis.com/css?family=Cutive+Mono');
+@import url('https://fonts.googleapis.com/css?family=Cutive');
 *{
     margin:0;
     padding:0;
@@ -17,8 +18,8 @@
     background-color: rgba(0, 0, 0, 0.438);
     background-size: cover;
     height: 92.5vh;
-    margin-top: 30px;
-    margin-bottom:30px;
+    margin-top: 3rem;
+    margin-bottom:3rem;
 
 }
 .background-wrap{
@@ -27,39 +28,39 @@
     position:fixed;
     height: 100%;
     z-index: -1000;
-    border: 30px solid white;
+    border: 3rem solid white;
 }
 
 
 .Title{
     font-family: 'Monoton';
     color: white;
-    font-size: 150px;
+    font-size: 15rem;
     z-index: 2;
-    letter-spacing: 10px;
+    letter-spacing: 1rem;
     animation: moveInLeft;
-    animation-duration: 3s;
+    animation-duration: 5s;
     animation-timing-function: ease-out;
 }
 .sub{
     font-family: 'Cutive Mono';
     color: white;
-    font-size: 40px;
-    margin-left: 40px;
+    font-size: 4rem;
+    margin-left: 4rem;
     animation: moveInRight;
-    animation-duration: 3s;
+    animation-duration: 5s;
     animation-timing-function: ease-out;
 }
 .login{
-    margin-left: 57px;
+    margin-left: 5.7rem;
     font-family: 'Cutive Mono';
     background-color: rgba(255, 255, 255, 0);
-    height: 70px;
-    width: 450px;
+    height: 7rem;
+    width: 45rem;
     color: white;
-    border: 2px solid white;
-    border-radius: 10px;
-    font-size: 40px;
+    border: .2rem solid white;
+    border-radius: 1rem;
+    font-size: 4rem;
     animation: moveInBottom;
     animation-duration: 1s;
     animation-timing-function: ease-out;
@@ -102,5 +103,57 @@
     100%{
         opacity:1;
         transform:translate(0);
+    }
+}
+@media(max-width:616px){
+    .Title{
+        font-size:14rem;
+    }
+    .sub{
+        font-size: 3.5rem;
+    }
+    .login{
+        font-size:3.5rem;
+        width: 44rem;
+    }
+}
+@media(max-width: 583px){
+    .Title{
+        font-size:10rem;
+    }
+    .sub{
+        font-size: 2rem;
+    }
+    .login{
+        font-size:2rem;
+        width: 35rem;
+    }
+}
+@media(max-width: 437px){
+    .Title{
+        font-size:8rem;
+    }
+    .sub{
+        font-size: 2rem;
+    }
+    .login{
+        font-size:2rem;
+        width: 30rem;
+        height: 5rem;
+    }
+}
+@media(max-width:389px){
+    .login{
+        margin-left: 1.5rem;
+        width: 20rem;
+        font-size: 1.5rem;
+        height: 4rem;
+    }
+    .Title{
+        font-size: 6rem;
+    }
+    .sub{
+        font-size: 1.5rem;
+        margin-left: 5px;
     }
 }

@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Cutive+Mono');
+@import url('https://fonts.googleapis.com/css?family=Anton|Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Cutive');
 
 .Dashboard{
     height: 100%;
@@ -13,20 +16,19 @@ html{
     justify-content: space-between;
     display:flex;
     flex-wrap: wrap; 
-    width: 100vw;
-    height:100vh;
     padding-left: 3rem;
     padding-right: 3rem;
     padding-bottom: 3rem;
     font-family: 'Cutive Mono';
     background: url('road.jpg') no-repeat center center fixed;
     background-size:cover;
+    height: 120vh;
 }
 .DashboardBody:after{
     background-color:rgba(0, 0, 0, 0.411);
 }
 .create-card{
-    margin-top: 30px;
+    margin-top: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,13 +42,13 @@ html{
 
 }
 .card-1{
-    margin-top: 30px;
+    margin-top: 3rem;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     width: 35rem;
     height:40rem;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     perspective: 150rem;
     -moz-perspective: 150rem;
     position:relative;
@@ -86,10 +88,10 @@ html{
 
 .Modal{
     position: absolute;
-    top: 30px;
-    left: 320px;
-    right: 320px;
-    bottom: 30px;
+    top: 3rem;
+    left: 32rem;
+    right: 32rem;
+    bottom: 3rem;
     background-color: rgb(255, 255, 255);
     outline: none;
     font-family: "Cutive Mono";
@@ -103,6 +105,18 @@ html{
     bottom: 0;
     background: rgba(0, 0, 0, 0.507);
 }
+.ReactModal__Content {
+    opacity: 0;
+  }
+  
+  .ReactModal__Content--after-open {
+    opacity: 1;
+    transition: opacity 400ms;
+  }
+  
+  .ReactModal__Content--before-close {
+    opacity: 0;
+  }
 .topModal{
     width: 100%;
     display: flex;
@@ -124,10 +138,13 @@ html{
     border: solid #218B93 1px;
 }
 .modalTitle{
-    margin-top: 10px;
-    font-size: 40px;
+    margin-top: 1rem;
+    font-size: 3.5rem;
     font-weight: bold;
     margin-right: 25%;
+    font-family: 'Cutive Mono';
+    color:rgb(83, 83, 83);
+    letter-spacing: 2px;
 }
 
 .ModalBody{
@@ -137,7 +154,7 @@ html{
 }
 .modalText{
     display:flex;
-    font-size: 20px;
+    font-size: 2rem;
     flex-direction: column;
     align-content: space-between;
 }
@@ -145,8 +162,8 @@ html{
     /* font-weight: 900; */
     /* border-bottom: solid 1px black; */
     text-transform: uppercase;
-    margin-bottom: 7px;
-    font-size: 30px;
+    margin-bottom: .7rem;
+    font-size: 3rem;
     color:rgb(26, 113, 119);
 }
 .TripDates{
@@ -155,15 +172,241 @@ html{
 .TripDates,
 .TripLocations,
 .TripTitle{
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
     
 }
-input{
-    margin-right: 10px;
-    height:30px;
-    font-size: 20px;
-    font-family: 'Cutive Mono';
+.newTripInput{
+ font-size: 14px;
 }
 label{
-    margin-left: 10px;
+    margin-left: 1rem;
+    font-family: 'Montserrat';
+    font-size: 1.7rem;
+    margin-right: 5px;
+}
+@media(max-width:1129px){
+    .create-card{
+        width: 30rem;
+        height: 35rem;
+        margin-right: 30px;
+    }
+    .card-1 .card-side{
+        width: 30rem;
+        height: 35rem;
+    }
+}
+@media(max-width:1087px){
+    .create-card{
+        width: 35rem;
+        height: 40rem;
+        font-size: 4rem;
+    }
+    .card-1 .card-side{
+        font-size:4rem;
+        width: 35rem;
+        height: 40rem;
+    }
+
+}
+@media(max-width: 789px){
+    .card-1 .card-side{
+        font-size:4rem;
+        width: 35rem;
+        height: 40rem;
+        margin-right: 100px;
+    }
+    .DashboardBody{
+        justify-content: space-around;
+    }
+    .create-card{
+        margin-right: 13px;
+    }
+}
+
+@media(max-width: 464px){
+    .create-card{
+        width: 30rem;
+        height: 35rem;
+        font-size: 3rem;
+        margin-bottom:8rem;
+        /* margin-top: */
+    }
+    .card-1 .card-side{
+        font-size:3rem;
+        width: 30rem;
+        height: 35rem;
+        margin-left: 20px;
+    }
+    .DashboardBody{
+        display: flex;
+        justify-content: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
+    }
+
+}
+@media(max-width:409px){
+    .create-card{
+        width:25rem;
+        height: 30rem;
+        margin-right: 52px;
+        margin-bottom: 10px;
+        margin:0 auto;
+        margin-top: 3rem;
+    }
+    .card-1 .card-side{
+      width: 25rem;
+      height: 30rem;
+      margin-left: 50px;
+    }
+    .DashboardBody{
+        padding-left:0;
+        padding-right:0;
+        padding-bottom:0;
+        display:flex;
+        justify-content: center;
+    }
+}
+@media(max-width: 360px){
+    .create-card{
+        width:25rem;
+        height: 30rem;
+        margin: 0 auto;
+        /* margin-bottom: 200px; */
+        margin: 0 auto;
+        font-size:2rem;
+    }
+    .card-1 .card-side{
+    margin-top: 150px;
+      width: 25rem;
+      height: 30rem;
+      margin-left: 4.5rem;
+      font-size: 2rem;
+    }
+    .DashboardBody{
+        justify-content: center;
+        padding-top: 30px;
+        flex-direction: column;
+    }
+}
+
+@media(max-width:1159px){
+    .modalTitle{
+        font-size: 3rem;
+    }
+    .statsTitle{
+        font-size:2rem;
+    }
+    .TripDates{
+        margin-top: 0px;
+    }
+    .ModalClose{
+        font-size:15px;
+        width:2rem;
+        height:2rem;
+    }
+    .modalText{
+        font-size: 1.75rem;
+    }
+    .Modal{
+        position: absolute;
+        top: 3rem;
+        left: 30rem;
+        right: 30rem;
+        bottom: 3rem;
+        background-color: rgb(255, 255, 255);
+        outline: none;
+        font-family: "Cutive Mono";
+    }
+    
+}
+@media(max-width: 1097px){
+    .Modal{
+        left:25rem;
+        right: 25rem;
+    } 
+}
+@media(max-width:1050px){
+    .Modal{
+        position: absolute;
+        top: 3rem;
+        left: 20rem;
+        right: 20rem;
+        bottom: 3rem;
+        background-color: rgb(255, 255, 255);
+        outline: none;
+        font-family: "Cutive Mono";
+       
+    }
+}
+@media(max-width:907px){
+    .Modal{
+        left:17rem;
+        right:17rem;
+    }
+}
+@media(max-width:850px){
+    .Modal{
+        left:14rem;
+        right:14rem;
+    }
+}
+@media(max-width:800px){
+    .Modal{
+        left:12rem;
+        right:12rem;
+        top: 9rem;
+        bottom: 9rem;
+    }
+}
+
+@media(max-width:750px){
+    .Modal{
+        left:11rem;
+        right:11rem;
+    }
+}
+@media(max-width:705px){
+    .Modal{
+        left:10rem;
+        right:10rem;
+    }
+}
+@media(max-width:689px){
+    .Modal{
+        left: 8rem;
+        right:8rem;
+    }
+}
+@media(max-width:640px){
+    .Modal{
+        left: 6rem;
+        right: 6rem;
+    }
+}
+@media(max-width: 603px){
+    .Modal{
+        left:4rem;
+        right: 4rem;
+    }
+}
+@media(max-width:560px){
+    modalTitle{
+        font-size: 2.75rem;
+    }
+    .statsTitle{
+        font-size:1.75rem;
+    }
+    .TripDates{
+        margin-top: 0px;
+    }
+    .ModalClose{
+        font-size:15px;
+        width:2rem;
+        height:2rem;
+    }
+    .modalText{
+        font-size: 1.50rem;
+    }
 }

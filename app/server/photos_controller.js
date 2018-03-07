@@ -15,6 +15,13 @@ module.exports ={
         db.upload_photos_by_trip([params.id, img_url])
         .then(()=> res.status(200).send("photo uploaded"))
         .catch(()=>res.status(500).send("It didn't work"))
+    },
+    delete:(req, res, next) =>{
+        const db = req.app.get('db');
+        const { params } =req;
+        db.delete_photos_by_tripid([params.id])
+        .then( () => res.status(200).send("Photos deleted"))
+        .catch(() => res.status(500).send("Photos not deleted"))
     }
 
 }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Map, GoogleApiWrapper} from 'google-maps-react';
-import './Map.css'
+import './Map.css';
+import axios from 'axios';
 
 const style ={
   width: '40%',
@@ -32,16 +33,37 @@ export class MapComponent extends Component {
             endDate: newProps.endDate,
         })
     }
+  
+  createTrip(){
+    if(this.state.origin && this.state.destination){
+
+    let newTrip ={
+      trip_name: this.props.trip_name,
+      starting_loc: this.props.starting_loc,
+      destination: this.props.end_loc,
+      start_date: this.props.start_date,
+      end_date: this.props.end_date,
+      travel_time: this.state.duration,
+      total_miles:this.state.distance
+
+    }
+      axios.post(`/api/trips`, newTrip).then(()=>{
+        this.props.tripCreated()
+      }
+    )
+  }
+  else{
+    window.alert('ERROR: Please enter starting location, destination and calculate distance and driving time before creating trip.')
+  }
+  }
 
   onButtonClick=(e)=>
   { 
     if(this.state.origin){
-    console.log("loaded")
     this.calculateDistance()
     this.getDirections()
     }
     else{
-        console.log("loading . . .")
     }
   }
   getDirections=()=>
@@ -76,11 +98,8 @@ export class MapComponent extends Component {
          if (status !== 'OK') {
            alert('Error was: ' + status);
          } else {
-           console.log(response);
            this.setState({distance:response.rows[0].elements[0].distance.text})
            this.setState({duration: response.rows[0].elements[0].duration.text})
-           console.log(this.state.duration)
-           console.log(this.state.distance)
          }
        });
   }
@@ -128,7 +147,8 @@ render() {
     </div>
     </div>
     <div className = "LowerBox">
-      <button className = "CreateTrip">CreateTrip</button>
+
+      <button className = "CreateTrip" onClick ={()=>this.createTrip()}>Create Trip</button>
     </div>
   </div>
     );

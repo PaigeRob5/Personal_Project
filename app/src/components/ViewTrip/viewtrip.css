@@ -1,107 +1,180 @@
+@import url('https://fonts.googleapis.com/css?family=Anton');
+@import url('https://fonts.googleapis.com/css?family=Anton|Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Cutive');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
 .ViewTrip{
     width: 100%;
     height: 100%;
+    overflow:hidden;
+    /* background: url('New-Mexico-4.jpg') no-repeat center center; */
+    background-size:cover;
+    background-color:rgba(0, 0, 0, 0);
+    background-repeat: no-repeat;
 }
-.ViewtripBody{
-    justify-content: center;
-    display:flex;
+/* .coverImage{
     width: 100%;
-    height:100%;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 30px;
+    height: 100%;
+    background: rgba(46, 46, 46, 0.637);
+} */
+.ViewtripBody{
+    
+    display:flex;
+    width: 70vw;
+    height: 100%;
+    padding-top: 3rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 3rem;
     font-family: 'Cutive Mono';
     flex-direction: column;
-    color: #4A4A4A;
+    color: rgb(0, 0, 0);
+    margin: 0 auto;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.808);
+    font-size: 30px;
 }
 .trip-buttons{
     display:flex;
     width: 100%;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    align-items: center;
 }
 button{
-    width: 120px;
-    height: 50px;
-    margin-right: 20px;
-    border-radius: 10px;
+    width: 12rem;
+    height: 5rem;
+    margin-right: 2rem;
+    border-radius: 10rem;
     font-family: 'Cutive Mono';
-    font-size: 15px;
+    font-size: 1.5rem;
     background-color: #218B93;
     border: none;
     color: white;
+}
+.ViewTripButton{
+    width: 12rem;
+    height: 2rem;
+    margin-right: 2rem;
+    border-radius: 1rem;
+    font-family: 'Cutive Mono';
+    font-size: 1.2rem;
+    background-color: #218B93;
+    border: none;
+    color: white;
+}
+.ViewTripButtonDelete{
+    width: 12rem;
+    height: 2rem;
+    margin-right: 2rem;
+    border-radius: 1rem;
+    font-family: 'Cutive Mono';
+    font-size: 1.2rem;
+    background-color: #218B93;
+    border: none;
+    color: white;
+    margin-bottom:11.5px;
 }
 
 .TripName{
     display: flex;
     justify-content: center;
-    font-size: 70px; 
+    font-size: 9rem; 
     text-transform: uppercase;
-    margin-bottom: 15px;
+    margin-bottom: 1.5rem;
+    font-family: 'Anton';
+    min-height: 13.2rem;
+    letter-spacing: 3px;
+    color: #464545;
     
 }
 .orig-dest{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    border-bottom: solid 3px #4A4A4A;
-    border-top: solid 3px #4A4A4A;
-    font-size: 40px;
+    border-bottom: solid .3rem #4A4A4A;
+    border-top: solid .3rem #4A4A4A;
+    font-size: 2.5rem;
+    min-height: 2.9rem;
+    margin-bottom: .3rem;
+    padding-top:.5rem;
 
 }
 
 .datesandmiles{
     display:flex;
     flex-direction: row;
+    border-bottom: solid .3rem #4A4A4A;
+    min-height: 4.8rem;
+    /* font-size: 2rem; */
     
 }
 .Dates{
-    padding-top: 10px;
+    padding-top: 1rem;
     align-items: center;
     display:flex;
     flex-direction: column;
-    border-right:solid 3px #4A4A4A;
+    border-right:solid .3rem #4A4A4A;
     flex-grow: 1;
-    font-size: 30px;
-    
+    font-size: 2rem;
+    min-height: 4.2rem;
 }
 
 .Stats{
-    padding-top: 10px;
-    margin-left:15px;
-    font-size: 30px;
+    padding-top: 1rem;
+    margin-left:1.5rem;
+    font-size: 2rem;
     display:flex;
     flex-grow:1;
     flex-direction: column;
     align-items: center;
 }
-.photos{
-    font-size: 40px;
-    margin-top: 20px;
-}
 
 .ChangeTitle{
     display: flex;
     justify-content: center;
-    font-size: 70px; 
+    font-size: 6rem; 
     text-transform: uppercase;
-    margin-bottom: 15px;
-    font-family: 'Cutive Mono';
+    margin-bottom: 1.5rem;
+    font-family: 'Anton';
     color: #4A4A4A;
-    width: 50%;
+    width: 70%;
 }
 .ChangeDate{
-    padding-top: 10px;
+    padding-top: 1rem;
     align-items: center;
     display:flex;
-    flex-direction: column;
-    border-right:solid 3px #4A4A4A;
+    flex-direction: row;
+    border-right:solid .3rem #4A4A4A;
     flex-grow: 1;
-    font-size: 30px;
-    font-family: 'Cutive Mono'
+    font-size: 2rem;
+    font-family: 'Cutive Mono';
+    width: 200px;
+    margin-bottom: 3px;
+    height: auto;
 }
 .changeTitleInput{
     display:flex;
     justify-content: center;
 }
+.viewMap{
+    position: relative;
+    border-top: solid .3rem #4A4A4A;
+    display:flex;
+    font-size: 2.5rem;
+    justify-content: center;
+    text-transform: uppercase;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3rem;
+}
 
-
+.viewMapTitle{
+    padding-top: 10px;
+    font-family: 'Cutive Mono';
+}
+ViewMap{
+    position: absolute;
+    left:10rem;
+    margin-right: 20rem;
+}
