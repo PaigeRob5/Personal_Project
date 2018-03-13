@@ -46,7 +46,9 @@ const express = require('express')
             if(response[0]){
                 done(null, response[0].user_id)
             }else{
-                db.create_user([name, sub])
+                db.create_user([name, sub]).then( response =>{
+                    done(null, response[0].user_id)
+                })
             }
         })
     }));
@@ -92,7 +94,7 @@ const express = require('express')
     //Endpoints Photos
     app.get('/api/photos/:id', photosCtrl.read);
     app.post('/api/photos/:id', photosCtrl.create);
-    app.delete('/api/photos/:id', photosCtrl.delete);
+    // app.delete('/api/photos/:id', photosCtrl.delete);
 
     app.listen(SERVER_PORT, () => {
         console.log(`Server listening on port: ${SERVER_PORT}`)
