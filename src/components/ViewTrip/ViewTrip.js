@@ -6,7 +6,6 @@ import Photos from '../Photos/Photos.js';
 import {Link} from 'react-router-dom';
 import ViewMap from '../ViewMap/ViewMap.js';
 import Unsplash, {toJson} from 'unsplash-js';
-import 'react-confirm-alert/src/react-confirm-alert.css'
 
 const unsplash = new Unsplash({
     applicationId: "85bd17ef0cf8f2266fcc489e00e849420cca79bcf7be2a00e8af5c7f9de8e49e",
